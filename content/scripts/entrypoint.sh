@@ -11,4 +11,4 @@ bash /nginx_sites.sh
 bash /site_certs.sh
 
 # logs
-tail -f /var/log/nginx/error.log /var/log/cron.log
+tail -f /var/log/nginx/error.log /var/log/cron.log /var/log/letsencrypt/letsencrypt.log
