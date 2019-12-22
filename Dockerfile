@@ -23,8 +23,8 @@ VOLUME /etc/letsencrypt
 
 # Environment variables
 ENV LETSENCRYPT_EMAIL none
-ENV CERTBOT_CRON "0 */12 * * *"
-ENV NGINX_CRON "*/5 * * * *"
+# ENV CERTBOT_CRON "0 */12 * * *"
+# ENV NGINX_CRON "*/5 * * * *"
 
 # Ports
 EXPOSE 80
