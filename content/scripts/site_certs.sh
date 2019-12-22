@@ -11,13 +11,12 @@ for enabledconfig in $enabledconfigfiles; do
   domains=$(grep -rw $enabledconfig -e "server_name" | sed 's/\<server_name\>//g' | tr -d ';' | sed -r 's/[ ]+/ -d /g' | sed ':a;N;$!ba;s/\n//g')
   echo "$domains" > /tmp/subdomains
   if [ -n "$domains" ]; then
-    certbot -nginx --agree-tos --noninteractive \
-      --expand --redirect \
+    certbot --nginx --agree-tos --noninteractive \
+      --expand --redirect --reinstall \
       --webroot-path=/var/www/letsencrypt \
       --email $LETSENCRYPT_EMAIL \
-      --domains $DOMAINS \
-      --reinstall $SUBDOMAINS_ARGS
-      --post-hook "service nginx reload"
+      --post-hook "service nginx reload" \
+      $domains
   fi
 done
 

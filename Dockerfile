@@ -12,10 +12,10 @@ COPY content/cron.d /etc/cron.d/
 
 # Create dirs
 RUN mkdir -p /var/www/letsencrypt
-RUN mkdir -p /etc/nginx/sites-enabled
+# RUN mkdir -p /etc/nginx/sites-enabled
 
-RUN touch /var/log/cron.log
-# RUN rm -rf /etc/nginx/sites-enabled/default /etc/nginx/sites-available/default
+# RUN touch /var/log/cron.log
+RUN rm -rf /etc/nginx/sites-enabled/default /etc/nginx/sites-available/default
 
 # Volumes
 VOLUME /etc/nginx/sites-available
